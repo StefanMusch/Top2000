@@ -8,17 +8,11 @@ Sys.setenv(SPOTIFY_CLIENT_SECRET = '90d6b433d7e542e3b021f73b6a95d4b8')
 access_token <- get_spotify_access_token()
 
 # Extract Top2000 playlist tracks
-top2000 <- get_playlist_audio_features(username = "Spotify", playlist_uris = "37i9dQZF1DWTMYSYpF657b")
+top2000 <- get_playlist_audio_features(username = "radio2nl", playlist_uris = "1DTzz7Nh2rJBnyFbjsH1Mh?si=FqKMM-4cSeWh_v3dNJ1GVQ")
 
 top2000 <- 
   top2000 %>%
   add_rownames(var = "position") %>%
   mutate(position = as.numeric(position))
-
-glimpse(tracks)
-
-# What key is most dominant?
-tracks$key %>% table %>% sort(decreasing = T)
-
 
 
